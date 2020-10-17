@@ -1,0 +1,127 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+#warpper{
+    width: 970px;
+    height: 1029px;
+    background-color: #2d1c22;
+    margin: 0 auto;
+}
+.header {
+    background-color: #f7f7f7;
+}
+.header h1{
+    display: inline-block;
+    margin: 7px;
+    padding-left: 15px;
+    font-family: cursive;
+
+}
+.header h3{
+    float: right;
+    padding-right: 50px;
+    font-family: sans-serif;
+
+}
+.personal-info{
+    height: 273px;
+    width: 918px;
+    margin: 20px auto;
+}
+.personal-info img{
+    height: 273px;
+    width: 411px;
+    border: 5px solid #645b5b;
+    box-sizing: border-box;
+    display: inline-block;
+}
+.personal-info .about{
+    height: 273px;
+    width: 484px;
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+    background: linear-gradient(to top left, #daccd9 37%, #ffffff 100%);
+    font-size: 16px;
+
+}
+.personal-info h3{
+    margin: 0 0;
+    height: 25px;
+    background: linear-gradient(to bottom, #808080 42%, #ffffff 158%);
+    padding: 9px 9px 9px 17px;
+    color: white;
+    font-family: sans-serif;
+
+}
+.personal-info p, a {
+    margin: 22px 17px;
+    color: black;
+}
+
+.block{
+    width: 286px;
+    height: 554px;
+    background: linear-gradient(to top left, #daccd9 37%, #ffffff 100%);
+    display: inline-block;
+    margin-left: 26px;
+    vertical-align: top;
+}
+.block h3{
+    margin: 0 0;
+    height: 25px;
+    background: linear-gradient(to bottom, #808080 42%, #ffffff 158%);
+    padding: 12px 9px 6px 17px;
+    color: white;
+    font-size: 17px;
+    font-family: sans-serif;
+}
+
+.block .img-sub{
+    width: 286px;
+    height: 150px;
+}
+.block p {
+    font-size: 15px;
+    margin: 8px;
+    height: 148px;
+}
+.block ul li img{
+    width: 44px;
+}
+.block ul {
+    padding: 0px 15px;
+    margin: 10px 0;
+
+}
+.block ul li{
+    display: inline-block;
+}
+.block button{
+    display: block;
+    width: fit-content;
+    text-decoration: none;
+    background-color: #407d61;
+    color: white;
+    padding: 4px;
+    border: 0.3px solid #172817;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+#footer {
+    background-color: #f7f7f7;
+    height: 69px;
+    margin: 30px 0 0 0;
+}
+
+#footer p {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 6px;
+}
+#footer img{
+    width: 20px;
+    height: 20px;
+}

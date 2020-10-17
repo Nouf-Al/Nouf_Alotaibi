@@ -1,0 +1,104 @@
+.nums{
+    display: inline;
+}
+.nums .block{
+    color: red;
+    text-align: center;
+    height: 63.33px;
+    width: 63.33px;
+    
+    
+}
+.num-top{
+    display: -webkit-box;
+    vertical-align: top;
+}
+.num-left {
+    display: inline-block;
+}
+
+.blue {
+    width: 132px;
+    position: absolute;
+    display: inline-table;
+    vertical-align: top;
+}
+.blue .block{
+    display: inline-block;
+    background-color: #689bff;
+    text-align: center;
+    width: 62px;
+    height: 62px;
+    border: 0.3px solid gray;
+}
+p {
+    margin: 0 0;
+    padding: 0 0;
+    font-size: 13px;
+}
+span.darkblue {
+    color: #0000ce;
+    font-weight: bold;
+    font-size: 24px;
+}
+.block .empty{
+    width: 62px;
+    height: 62px;
+}
+
+.pink {
+    width: 652px;
+    position: absolute;
+    display: inline;
+    vertical-align: top;
+    margin: 190px 0 0 126px;
+}
+.pink .block{
+    display: inline-block;
+    background-color: #fd9a98;
+    text-align: center;
+    width: 62px;
+    height: 62px;
+    border: 0.3px solid gray;
+}
+.yellow  {
+    width: 335px;
+    position: absolute;
+    display: inline;
+    vertical-align: top;
+    margin: 64px 0 0 741px;
+}
+.yellow .block , .yellow1{
+    float: right;
+    display: inline-block;
+    background-color: #fecb00;
+    text-align: center;
+    width: 62px;
+    height: 62px;
+    border: 0.3px solid gray;
+}
+.yellow1 {
+    margin: 1px 125px;
+}
+.green {
+    margin: 443px 0 0 63px;
+    float: right;
+    width: 887px;
+    position: absolute;
+    display: inline-table;
+    vertical-align: top;
+}
+.green .block{
+    display: inline-block;
+    background-color: #1fca21;
+    text-align: center;
+    width: 62px;
+    height: 62px;
+    border: 0.3px solid gray;
+}
+.red p {
+    color: red;
+    width: 56px;
+    padding: 24px;
+}
+

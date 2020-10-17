@@ -1,0 +1,72 @@
+    /*CSS reset settings here*/
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    #wrapper{
+        width: 970px;
+        background-color: #1b345d;
+        margin: 0px auto;
+        padding: 1px;
+    }
+    #header{
+        min-height: 70px;
+        background-color: #cf3036;
+        margin: 9px;
+        color: white;
+        border-radius: 9px;
+    }
+    #header h1{
+        padding: 14px;
+    }
+    #navigation{
+        min-height: 240px;
+        width: 189px;
+        background-color: #2a7d8c;
+        display: inline-block;
+        margin: 10px;
+        border-radius: 19px;
+        font-size: 15px;
+        padding: 6px 11px;
+    }
+
+    #navigation  li{
+        margin: 4px 16px;
+    }
+    #main_content{
+        min-height: 400px;
+        width: 705px;
+        background-color: #0e1822;
+        display: inline-block;
+        vertical-align: top;
+        margin: 10px;
+        font-size: 15px;
+        color: white;
+        border-radius: 19px;
+    }
+
+    #main_content ul li{ 
+        margin-left: 14px;
+    }
+
+    .subcontents{
+        margin: 20px;
+    }
+    .subcontents p {
+        margin: 9px 0;
+    }
+    #advertisement{
+        min-height: 60px;
+        width: 941px;
+        background-color: #5d6673;
+        margin: 10px;
+        border-radius: 19px
+    }
+
+    #advertisement p {
+        padding: 19px;
+        color: white;
+    }
+    a{
+        color: #5fced8;
+    }

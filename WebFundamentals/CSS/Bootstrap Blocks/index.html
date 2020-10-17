@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- load Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <style>
+     .navbtn{
+       background-color: red;
+     }
+     @media only screen and (max-width: 480px){
+      /* we will set these stylings only if the device is a screen with a width of 480px or less */
+      .navbtn {
+          background-color: yellow;
+      }
+ }
+    </style>
+  </head>
+  <body>
+    <div class="containers">
+        <div class="row">
+            <div class="col bg-dark p-5 mb-3">
+                <div class="col-4 bg-info text-white offset-4 p-1">
+                  <button class=" navbtn mx-auto p-2 m-0" style="width:150px;">Header</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="bg-info col-4 m-3" style="height:300px;">
+              <p class="mx-auto p-4  m-0 text-light" style="width: fit-content;">Aside</p>
+            </div>
+
+            <div class="bg-warning col mt-3">
+              <p class="mx-auto p-4  m-0 text-light" style="width: fit-content;">Main</p>
+                <div  class="row" style="height:400px;">
+                    <div class="col-md bg-white text-dark  m-2">
+                      <p class="mx-auto  m-0 p-4" style="width: fit-content;">Artical</p>
+                    </div>
+                    <div class="col-md bg-white text-dark m-2">
+                      <p class="mx-auto   m-0 p-4" style="width: fit-content;">Artical</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 text-light p-3 m-2 bg-success ">
+              <p class="mx-auto  m-0" style="width: fit-content;">Footer</p>
+            </div>
+        </div>
+  </div>
+  </body>
+</html>
