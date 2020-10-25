@@ -1,0 +1,217 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Functions</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <style>
+        body {
+            margin: 0;
+        }
+        .section {
+            width: 800px;
+            background-color: whitesmoke;
+            height: 100px;
+            margin: 0 auto;
+            border-bottom: 3px solid black;
+        }
+        h1 {
+            text-align: center;
+            display: inline-block;
+            width: 492px;
+            float: right;
+            margin: 6px 0;
+        }
+        p {
+            display: inline-block;
+            float: right;
+            width: 492px;
+            margin: 0;
+            text-align: center;
+            font-size: 15px;
+        }
+        button {
+            width: 150px;
+            padding: 7px;
+            border: 1px solid blue;
+            margin: 33px;
+            position: absolute;
+            font-size: 15px;
+        }
+        .blue{
+            background-color: blue;
+            color: white;
+
+        }
+        .slideToggle img, .slideDown img, .slideUp img, .attr img {
+            width: 68px;
+            position: absolute;
+            right: 255px;
+            margin: 6px;
+        }
+        .show img{
+            width: 88px;
+            float: right;
+            position: absolute;
+            right: 435px;
+            margin: 32px 0;
+        }
+        input[type="text"] {
+            position: absolute;
+            right: 390px;
+            margin: 74px 0;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            console.log("doc is ready");
+            $('.addClass button').click(function(){
+                $('.addClass p').addClass('blue');
+            });
+            
+            $('.slideToggle img').hide();
+            $('.slideToggle button').click(function(){
+                $('.slideToggle img').slideToggle();
+            });
+
+            $('.append button').click(function(){
+                $('.append p').append("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d aliqua.</p>");
+            });
+
+            $('.slideDown img').hide();
+            $('.slideDown button').click(function(){
+                $('.slideDown img').slideDown();
+            });
+
+            $('.slideUp button').click(function(){
+                $('.slideUp img').slideUp();
+            });
+            $('.fadeIn p:last-child').hide();
+            $('.fadeIn button').click(function(){
+                $('.fadeIn p').fadeIn();
+            });
+            $('.fadeOut button').click(function(){
+                $('.fadeOut p:last-child').fadeOut();
+            });
+            $('.hide button').click(function(){
+                $('.hide p').hide();
+            });
+            $('.toggle button').click(function(){
+                $('.toggle p').toggle();
+            });
+            $('.show img').hide();
+            $('.show button').click(function(){
+                $('.show img').show();
+            });
+            $('.attr button').click(function(){
+                $('.attr img').attr("src","party.gif");
+            });
+            $('.val button').click(function(){
+                $( "input" ).keyup(function() {
+                    var value = $( this ).val();
+                    $( ".val span" ).text( value );
+                  })
+            });
+            $('.html p:last-child').hide();
+            $( ".html button" ).click(function() {
+                var htmlString = $(".html p:last-child").html();
+                $( ".html p" ).text( htmlString );
+            });
+            $('.after button').click(function(){
+                $('.after p').after("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d aliqua.</p>");
+            });
+            $('.before button').click(function(){
+                $('.before p').before("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d aliqua.</p>");
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+    <div class="addClass section">
+        <h1>Add Class</h1>
+        <button>Add Class</button>
+        <p>Click the button to add class 'blue' to this paragraph</p>
+    </div>
+    <div class="slideToggle section">
+        <h1>Slide Toggle</h1>
+        <button>Slide Toggle</button>
+        <p>Click the button to slide toggle a hidden image</p>
+        <img src="hello.gif" alt="hello">
+    </div>
+    <div class="append section">
+        <h1>Append</h1>
+        <button>Append</button>
+        <p>Click the button to append a new paragraph</p>
+    </div>
+    <div class="slideDown section">
+        <h1>Slide Down</h1>
+        <button>Slide Down</button>
+        <p>Click the button to slide down a hidden image</p>
+        <img src="hello.gif" alt="hello">
+    </div>
+    <div class="slideUp section">
+        <h1>Slide Up</h1>
+        <button>Slide Up</button>
+        <p>Click the button to slide up a hidden image</p>
+        <img src="hello.gif" alt="hello">
+    </div>
+    <div class="fadeIn section">
+        <h1>Fade In</h1>
+        <button>Fade In</button>
+        <p>Click the button to fade in a hidden text</p>
+        <p>Hello there, enjoy playing with JQuery</p>
+    </div>
+    <div class="fadeOut section">
+        <h1>Fade Out</h1>
+        <button>Fade Out</button>
+        <p>Click the button to fade out a hidden text</p>
+        <p>Hello there, enjoy playing with JQuery</p>
+    </div>
+    <div class="hide section">
+        <h1>Hide</h1>
+        <button>Hide</button>
+        <p>Click the button to hide this text</p>
+    </div>
+    <div class="toggle section">
+        <h1>Toggle</h1>
+        <button>Toggle</button>
+        <p>Click the button to toggle this text</p>
+    </div>
+    <div class="show section">
+        <h1>Show</h1>
+        <button>Show</button>
+        <p>Click the button to Show a hidden image</p>
+        <img src="show.gif" alt="show">
+    </div>
+    <div class="attr section">
+        <h1>Attr</h1>
+        <button>Attr</button>
+        <p>Click the button to change the image</p>
+        <img src="smile.gif" alt="show">
+    </div>
+    <div class="val section">
+        <h1>Val and Text</h1>
+        <button>Val and Text</button>
+        <input type="text" name="name" placeholder="What's your Name?">
+        <p>Hi, <span class="name"></span></p>
+    </div>
+    <div class="html section">
+        <h1>HTML</h1>
+        <button>HTML</button>
+        <p>Click here to see the image</p>
+        <p>Hello</p>
+    </div>
+    <div class="after section">
+        <h1>After</h1>
+        <button>After</button>
+        <p>Click the button to add text under this text</p>
+    </div>
+    <div class="before section">
+        <h1>Before</h1>
+        <button>Before</button>
+        <p>Click the button to add text before this text</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Hover in/out</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <style>
+        
+
+        .container {
+            width: 800px;
+            margin: 0 auto;
+        }
+        img {
+            width: 135px;
+            display: inline-block;
+            margin: 27px 131px;
+        }
+        
+    </style>
+    <script>
+        $(document).ready(function(){
+
+            $('img').hover(function(){
+                var back = $(this).attr("data-alt-src");
+                $(this).attr("src", back);
+            } , 
+            function(){
+                var front = $(this).attr("data-orig-src");
+                $(this).attr("src",front);
+            } );
+
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="hoverin-1.jpg" data-orig-src="hoverin-1.jpg" data-alt-src="hoverout-1.jpg">
+        <img src="hoverin-2.jpg" data-orig-src="hoverin-2.jpg" data-alt-src="hoverout-2.jpg">
+        <img src="hoverin-3.jpg" data-orig-src="hoverin-3.jpg" data-alt-src="hoverout-3.jpg">
+        <img src="hoverin-4.jpg" data-orig-src="hoverin-4.jpg" data-alt-src="hoverout-4.jpg">
+    </div>
+    
+</body>
+</html>

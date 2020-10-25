@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Disappearing Ninja</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <style>
+        .container {
+            width: 798px;
+            margin: 67px auto;
+        }
+        img {
+            width: 180px;
+            margin: 7px;
+            border: 0.3px solid pink;
+        }
+        button {
+            margin: 5px auto;
+            display: block;
+            background: #41eb20;
+            padding: 9px;
+            border: none;
+            cursor: grab;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('img').click(function() {
+              $(this).slideUp();
+            });
+          
+            $('button').click(function () {
+              $('img').show();
+            });
+          });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="daftpunk.gif" alt="daftpunk">
+        <img src="daftpunk.gif" alt="daftpunk">
+        <img src="daftpunk.gif" alt="daftpunk">
+        <img src="daftpunk.gif" alt="daftpunk">
+        <img src="daftpunk.gif" alt="daftpunk">
+        <img src="daftpunk.gif" alt="daftpunk">
+        <img src="daftpunk.gif" alt="daftpunk">
+        <img src="daftpunk.gif" alt="daftpunk">
+        <button>RESTORE</button>
+    </div>
+   
+</body>
+</html>
