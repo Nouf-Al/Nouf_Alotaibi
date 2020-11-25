@@ -25,9 +25,10 @@ const HookForm = (props) => {
         let message = "";
         if (e.target.value.length < 2 && e.target.value.length > 0) {
             message = " First name must be at least 2 characters.";
-        } else if (e.target.value.length === 0) {
-            message = "First name is required";
-        }
+        } 
+        // else if (e.target.value.length === 0) {
+        //     message = "First name is required";
+        // }
         setErrors({ ...errors, firstname: message });
     }
 
@@ -36,10 +37,11 @@ const HookForm = (props) => {
         let message = "";
         if (e.target.value.length < 2 && e.target.value.length > 0) {
             message = " Last name must be at least 2 characters.";
-        } else if (e.target.value.length === 0) {
-            message = "Last name is required";
-        }
-        setErrors({ ...errors, lastname: message });
+        } 
+        // else if (e.target.value.length === 0) {
+        //     message = "Last name is required";
+        // }
+        // setErrors({ ...errors, lastname: message });
 
     }
 
@@ -48,9 +50,10 @@ const HookForm = (props) => {
         let message = "";
         if (e.target.value.length < 5 && e.target.value.length > 0) {
             message = " Email must be at least 5 characters.";
-        } else if (e.target.value.length === 0) {
-            message = "Email is required";
-        }
+        } 
+        // else if (e.target.value.length === 0) {
+        //     message = "Email is required";
+        // }
         setErrors({ ...errors, email: message });
 
     }
@@ -60,9 +63,11 @@ const HookForm = (props) => {
         let message = "";
         if (e.target.value.length < 8 && e.target.value.length > 0) {
             message = "Password should be at least 8 characters";
-        } else if (e.target.value.length === 0) {
-            message = "Password is required";
-        } else if (e.target.value !== c_password) {
+        } 
+        // else if (e.target.value.length === 0) {
+        //     message = "Password is required";
+        // } 
+        else if (e.target.value !== c_password) {
             message = "Password and confirm password do not match";
         }
         setErrors({ ...errors, password: message });
@@ -73,9 +78,11 @@ const HookForm = (props) => {
         let message = "";
         if (e.target.value.length < 8 && e.target.value.length > 0) {
             message = "Confirm Password should be at least 8 characters";
-        } else if (e.target.value.length === 0) {
-            message = "Confirm Password is required";
-        } else if (e.target.value !== password) {
+        } 
+        // else if (e.target.value.length === 0) {
+        //     message = "Confirm Password is required";
+        // } 
+        else if (e.target.value !== password) {
             message = "Password and confirm password do not match";
         }
         setErrors({ ...errors, c_password: message });
