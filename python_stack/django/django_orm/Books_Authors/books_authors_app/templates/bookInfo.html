@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books&Authors</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <h2>{{book_info.title}}</h2>
+            </div>
+            <div class="row">
+                <h5>ID: {{book_info.id}}</h5>
+            </div>
+            <div class="row">
+                <h5>Description: {{book_info.desc}}</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row">
+                <ul>
+                    <li>
+                        <h6>Authors</h6>
+                        <ul>
+                            {% for author in book_info.writer.all%}
+                            <li>{{author.first_name}} {{author.last_name}}</li>
+                            {% endfor%}
+                    </li>
+                </ul>
+                </li>
+
+                </ul>
+            </div>
+
+            <div class="row">
+                <form action="{% url 'author_add_book' book_info.id %}" method="POST">
+                    {% csrf_token%}
+                    <input type="hidden" name="which_form" value="add_to_book">
+                    <select name="which_author" id="authors">
+                        {% for author in all_authors%}
+                        {% if author not in book_info.writer.all%}
+                        <option value="{{author.first_name}}">{{author.first_name}} {{author.last_name}}</option>
+                        {%endif%}
+                        {% endfor%}
+
+                    </select>
+                    <input type="submit" value="Add">
+                </form>                
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

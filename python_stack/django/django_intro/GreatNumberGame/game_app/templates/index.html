@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Number Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <style>
+        .container {
+            width: fit-content;
+            text-align: center;
+            margin: 76px auto;
+        }
+
+        .btn {
+
+            width: fit-content;
+            margin: 9px 0 20px 0;
+        }
+
+        input {
+            display: block;
+            margin: 25px auto;
+        }
+        .section {
+            width: 270px;
+            margin: 20px auto;
+            background: yellow;
+            border: 4px solid black;
+            height: 260px;
+            padding: 80px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Welcome to the Great Number Game!</h2>
+        <h6>I am thinking of a number between 1 and 100 </h6>
+        <h6>Take a guess!</h6>
+
+        {% if 'user_guess' in request.session %}
+        <div class="section" style="background: {{request.session.color}};">
+            <h3>{{request.session.user_guess}} {{request.session.results}}</h3>
+            <form action="/play_again" method="POST">
+                {% csrf_token%}
+                {% if request.session.results == 'was the number!'  %}
+                <button class="btn">Play Again!</button>
+                {% endif %}
+
+            </form>
+        </div>
+        <h4>Number of Guesses: {{request.session.attempt}}</h4>
+
+        {% endif %}
+
+        <!-- <h1>Computer Guess is: {{request.session.computer_guess}}</h1> -->
+
+
+        {% if request.session.results != 'was the number!'  %}
+        <form action="/guess" method="POST">
+            {% csrf_token%}
+            <input type="text" name="number">
+            <input class="btn" type="submit" value="Submit">
+        </form>
+        {% endif %}
+
+
+        
+    </div>
+</body>
+
+</html>

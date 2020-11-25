@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Books</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'books/style.css' %}">
+
+</head>
+
+<body>
+    <div class="header">
+
+        <h3>Welcome {{request.session.first_name}}</h3>
+        <a class="float-right" href="{% url 'logout'%}">Log Off</a>
+        <a class="float-right" href="{% url 'my_fav'%}">My Fav</a>
+
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+            <h4 class="card-header">Add a Favorite Book</h4>
+            <form class="card-body" action="{% url 'add_book'%}" method="POST">
+                {% csrf_token %}
+                <div class="md-form">
+                    <label for="title">Title</label>
+                    <input class="form-control" type="text" name="title" id="title">
+                </div>
+                <div class="md-form">
+                    <label for="desc">Description</label>
+                    <textarea class="form-control" name="desc" id="desc" rows="5"></textarea>
+                </div>
+                <div class="md-form">
+                    <input class="btn btn-info btn-md" type="submit" value="Add Book">
+                </div>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </form>
+        </div>
+
+        <div class="section">
+            <h4>All Books</h4>
+            {%for book in all_books%}
+            <div class="md-form">
+                <a href="{% url 'show_book' book.id %}">{{book.title}}</a>
+                <p>(added by {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}})</p>
+                {% if user_to_fav not in book.users_who_like.all%}
+                <a href="{% url 'fav' book.id %}">Add to Favorite</a>
+                {%else %}
+                <p>This is one of your favorites</p>
+                {%endif%}
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</body>
+
+</html>

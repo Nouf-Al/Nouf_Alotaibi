@@ -1,0 +1,15 @@
+.wrapper {
+    background: black;
+    color: #11da17;
+    padding: 20px;
+    width: fit-content;
+    text-align: center;
+    border-radius: 25px;
+}
+h1, h3 {
+    text-shadow: 0 0 3px #40ea08;
+    /* margin: 0px 0 4px 0; */
+}
+body{
+    font-family: monospace;
+}

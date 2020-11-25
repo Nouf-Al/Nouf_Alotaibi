@@ -1,0 +1,38 @@
+.container {
+    margin: 35px auto;
+    width: 1031px;
+}
+.section1 {
+    width: fit-content;
+    display: inline-block;
+}
+.section2 {
+    display: inline-block;
+    vertical-align: top;
+    width: fit-content;
+    border-top: 2px solid black;
+    float: right;
+}
+
+.row {
+    width: 719px;
+    margin: 40px 0 0 0;
+
+}
+.col {
+
+}
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    vertical-align: top;
+}
+input, .btn,textarea {
+    float: right;
+    width: 225px;
+}
+
+.btn {
+    padding: 0 0;
+}
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            width: 800px;
+            margin: 42px auto;
+            border-radius: 47px 47px 4px 4px;
+            padding: 47px;
+            box-shadow: 0 0 8px -5px black;
+            text-align: center;
+            background: #ffea00;
+        }
+        img {
+            width: 73%;
+        }
+        .table{
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{{url_for('static',filename='img/img1.png')}}" alt="RPS">
+        
+        <form action="/go" method='POST'>
+            <label for="game">Pick one:</label>
+            <select name="game" id="game">
+                {% for choice in session['choices'] %}
+                <option value="{{choice}}">{{choice}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Go">
+        </form>
+        {% if session['droplist'] %}
+            <p>You picked {{session['droplist']}}</p>
+            <p>Computer picked {{session['computer_choice']}}</p>
+            <p>{{session['winOrLossOrTie']}}</p>
+
+            <table class="table  table-bordered table-sm table-hover">
+                {% for result in session['results'] %}
+                    <tr >
+                        <td scope="col" class="table-dark ">{{result}}</td>
+                        <td scope="col" class="table-light">{{session['results'][result]}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <form action="/reset" method='POST'>
+                <button>RESET</button>
+            </form>
+        {%endif%}
+        
+    </div>
+</body>
+</html>

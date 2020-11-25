@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground</title>
+    <style>
+        .container{
+            width: 1098px;
+            margin: 0 auto;
+        }
+        h2{
+            margin:26px 0;
+            text-align: center;
+        }
+        .square{
+            width: 265px;
+            height: 265px;
+            background-color: aquamarine;
+            display: inline-block;
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome!</h2>
+        {% for i in range(0,x)%}
+        <div class="square"style="background-color: {{color}}"></div>
+        {%endfor%}
+    </div>
+</body>
+</html>

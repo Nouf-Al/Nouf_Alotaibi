@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View book</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'books/style.css' %}">
+
+</head>
+
+<body>
+    <div class="header">
+        <h3>Welcome {{request.session.first_name}}</h3>
+        <a class="float-right" href="{% url 'logout'%}">Log Off</a>
+        <a class="float-right" href="{% url 'my_fav'%}">My Fav</a>
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+            <h4 class="card-header">{{book_info.title}}</h6>
+                <div class="card-body">
+                    <h6>Added by: {{book_info.uploaded_by.first_name}} {{book_info.uploaded_by.last_name}}</h6>
+                    <h6>Added on: {{book_info.created_at}}</h6>
+                    <h6>Last updated on: {{book_info.updated_at}}</h6>
+                    <h6>Description: {{book_info.desc}}</h6>
+                </div>
+        </div>
+
+        <div class="section">
+            <h4>Users who likes this book:</h4>
+            <ul>
+                {% for user in book_info.users_who_like.all%}
+                <li>{{user.first_name}} {{user.last_name}}
+                    {% if user.id == request.session.id %}
+                    <a href="{% url 'un_fav' book_info.id user.id%}">Un-Favorite</a>
+                    {%endif%}
+                </li>
+                {% endfor %}
+                {% if user_to_fav not in book_info.users_who_like.all%}
+                <li><a href="{% url 'fav' book_info.id%}">Add to Favorite</a></li>
+                {%endif%}
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>

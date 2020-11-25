@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Book</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'books/style.css' %}">
+
+</head>
+
+<body>
+    <div class="header">
+
+        <h3>Welcome {{request.session.first_name}}</h3>
+        <a class="float-right" href="{% url 'logout'%}">Log Off</a>
+        <a class="float-right" href="{% url 'my_fav'%}">My Fav</a>
+
+    </div>
+
+    <div class="container">
+
+        <div class="card block">
+            <form class="card-body" action="{% url 'update_book' book_info.id %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="form" value="update">
+                <h5 class="md-form"><input class="form-control" type="titel" name="title" value="{{book_info.title}}"
+                        id="title"></h5>
+                <p>Added by: {{book_info.uploaded_by.first_name}} {{book_info.uploaded_by.last_name}}</p>
+                <p>Added on: {{book_info.created_at}}</p>
+                <p>Last updated on: {{book_info.updated_at}}</p>
+                <div class="row">
+                    <label class="col-3" for="desc">Description</label>
+                    <div class="md-form col">
+                        <textarea class="form-control" class="col" name="desc" id="desc"
+                            rows="5">{{book_info.desc}}</textarea>
+                        <div class="row">
+                            <input class="btn btn-info btn-md col" type="submit" value="Update">
+                            <form action="{% url 'update_book' book_info.id%}">
+                                <input type="hidden" name="form" value="delete">
+                                <input class="btn btn-info btn-md col bg-danger" type="submit" value="Delete">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+            {% if messages %}
+            <div class="card-footer">
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+        </div>
+
+        <div class="section ">
+            <h4>Users who likes this book:</h4>
+            <ul>
+                {% for user in book_info.users_who_like.all%}
+                <li>{{user.first_name}} {{user.last_name}}
+                    {% if user.id == request.session.id %}
+                    <a href="{% url 'un_fav' book_info.id user.id%}">Un-Favorite</a>
+                    {%endif%}
+                </li>
+                {% endfor %}
+                {% if user_to_fav not in book_info.users_who_like.all%}
+                <li><a href="{% url 'fav' book_info.id%}">Add to Favorite</a></li>
+                {%endif%}
+            </ul>
+
+
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

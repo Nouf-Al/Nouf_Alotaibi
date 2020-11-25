@@ -1,0 +1,25 @@
+
+.section {
+    display: inline-block;
+    width: 288px;
+    padding: 53px 0;
+    text-align: center;
+    border: 1px solid black;
+    margin: 18px 9px;
+}
+.p  {
+    margin: 25px 9px 0 9px;
+}
+.activity{
+    border: 1px solid black;
+    height: 250px;
+    overflow-y: auto;
+    margin: 25px 9px 0 9px;
+    padding: 10px;
+
+}
+
+span.span {
+    border: 1px solid black;
+    padding: 4px 129px 4px 6px;
+}

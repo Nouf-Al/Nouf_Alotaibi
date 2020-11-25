@@ -1,0 +1,27 @@
+.section2 {
+    display: block;
+    width: fit-content;
+    margin: 65px auto;
+    border-top: 2px solid black;
+}
+
+.row {
+    padding: 18px 154px;
+}
+.col {
+    margin: 8px 45px;
+}
+input, select, .btn {
+    float: right;
+    width: 176px;
+}
+.btn {
+    padding: 0 0;
+}
+img{
+    width: 20px;
+}
+button{
+    width: 35px;
+    height: 35px;
+}

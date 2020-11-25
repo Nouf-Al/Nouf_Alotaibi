@@ -1,0 +1,21 @@
+1-from user_shell_app.models 
+2-import *
+3-User = Users.objects.create(first_name="Noura",last_name="Alotaibi", email="N@hotmail.com",age=20)
+4-Users.objects.create(first_name="Hind",last_name="Alotaibi", email="K@hotmail.com",age=20) 
+5-User = Users.objects.create(first_name="Razan",last_name="Alotaibi", email="K@hotmail.com",age=20)
+6-User.save()
+7-Users.objects.all()
+8-Users.objects.all()
+9-Users.objects.last()  
+10-Users.objects.first()
+11-user3 = Users.objects.get(id=3)
+12-user3.last_name='Pancakes' 
+13-user3.save()
+14- user2 = Users.objects.get(id=2) 
+15- user2.delete()                 
+(1, {'user_shell_app.Users': 1})
+17- user2.save()
+18-users_ordered= Users.objects.order_by('first_name')
+19- print(users_ordered)
+20- users_ordered= Users.objects.order_by(-'first_name')
+

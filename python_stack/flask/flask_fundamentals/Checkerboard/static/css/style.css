@@ -1,0 +1,11 @@
+.color1, .color2{
+    width: 35px;
+    height: 35px;
+}
+.color1{
+    background-color:#7ba9504d;
+
+}
+.color2{
+    background-color:#ff1d45ab;
+}
