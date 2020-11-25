@@ -1,5 +1,4 @@
 import React from 'react';
-import '../App.css';
 const HookCard = (props) => {
     return (
             <div className="card mt-5">
