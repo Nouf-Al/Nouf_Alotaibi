@@ -7,7 +7,7 @@ function App() {
 
     
 
-    const clickHandeler = () =>{
+    const clickHandler = () =>{
         
       axios.get('https://pokeapi.co/api/v2/pokemon?limit=807')
         .then(response=>{setPokemons(response.data.results)})
@@ -19,7 +19,7 @@ function App() {
     
     return (
         <>
-        <button onClick={clickHandeler}>Fetch Pokemons</button>
+        <button onClick={clickHandler}>Fetch Pokemons</button>
         <div>
             {pokemons.map((pokemon, index) => {
                 return (<div key={index}>{pokemon.name}</div>)
