@@ -7,7 +7,7 @@ const Api = (props) => {
 
     
 
-    const clickHandeler = () =>{
+    const clickHandler = () =>{
         
             fetch('https://pokeapi.co/api/v2/pokemon?limit=807')
                 .then(response => response.json())
@@ -17,7 +17,7 @@ const Api = (props) => {
     
     return (
         <>
-        <button onClick={clickHandeler}>Fetch Pokemons</button>
+        <button onClick={clickHandler}>Fetch Pokemons</button>
         <div>
             {pokemons.length > 0 && pokemons.map((pokemon, index) => {
                 return (<div key={index}>{pokemon.name}</div>)
