@@ -1,0 +1,128 @@
+
+
+
+.container {
+  margin: 118px auto;
+}
+
+
+.complete{
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.form-control:focus {
+  color: #ffffff;
+  background-color: #000000d1;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0px 2px 3px black;
+
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #ffffff;
+  background-color: #000000a3;
+  background-clip: padding-box;
+ 
+  /* opacity: 0.5; */
+  /* transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; */
+}
+
+.input{
+  border-radius: 0%;
+  border: none;
+  box-shadow: 0px 2px 3px black;
+
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #ffffff;
+  background: #000000a3;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  user-select: none;
+  /* background-color: transparent; */
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  /* border-radius: .25rem; */
+  /* transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out; */
+}
+
+.row.mt-5 {
+  width: 47%;
+  margin: 0 auto;
+  
+
+}
+.item {
+  display: block;
+  width: 106%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #ffffff;
+  background-color: #000000a3;
+  background-clip: padding-box;
+  box-shadow: 0px 2px 3px black;
+
+  /* opacity: 0.5; */
+  /* transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; */
+}
+
+ label {
+  display: inline-block;
+    margin-bottom: .5rem;
+    color: white;
+    margin: -14px 0 0 8px;
+    /* line-height: 1; */
+    position: absolute;
+}
+
+
+.minus {
+  display: inline-block;
+  font-weight: 400;
+  color: #ffffff;
+  background: #000000;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  user-select: none;
+  /* background-color: transparent; */
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  /* border-radius: .25rem; */
+  /* transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out; */
+}
+
+
+button.btn.float-right.input.col-md-1 {
+  margin: -27px -15px 0 15px;
+  padding: 12px;
+  /* background: none; */
+}
+
+.row.item:hover {
+  background: #000000;
+}
+
+.item-row {
+  margin-bottom: 0.4rem;
+}
