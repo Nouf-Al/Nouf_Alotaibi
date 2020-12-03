@@ -1,0 +1,9 @@
+https://pokeapi.co/api/v2/pokemon/ivysaur
+
+https://pokeapi.co/api/v2/pokemon/2
+
+https://pokeapi.co/api/v2/pokemon/6/
+
+https://pokeapi.co/api/v2/pokemon/raticate
+
+https://pokeapi.co/api/v2/pokemon/10
