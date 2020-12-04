@@ -11,3 +11,9 @@
 .row.my-auto {
   background: #0000005c;
 }
+
+caption.result-title.font-weight-bold {
+  font-size: 1.4rem;
+  color: black;
+  text-transform: uppercase;
+}

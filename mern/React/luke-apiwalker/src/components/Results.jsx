@@ -28,6 +28,7 @@ const Results = ({ id, category }) => {
         resultDisplay = (
             <>
                 <table class="table table-hover table-light shadow ">
+                <caption className="result-title  font-weight-bold">{result.name}</caption>
                     <thead>
                         <tr>
                             <th>Height</th>
@@ -53,6 +54,7 @@ const Results = ({ id, category }) => {
         resultDisplay = (
             <>
                 <table class="table table-hover table-light shadow ">
+                <caption className="result-title  font-weight-bold">{result.name}</caption>
                     <thead>
                         <tr>
                             <th>Climate</th>
@@ -77,6 +79,7 @@ const Results = ({ id, category }) => {
         resultDisplay = (
             <>
                 <table class="table table-hover table-light shadow ">
+                <caption className="result-title  font-weight-bold">{result.name}</caption>
                     <thead>
                         <tr>
                             <th>Name</th>
