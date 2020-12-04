@@ -28,16 +28,15 @@ const Homeworld = ({ url }) => {
     }
 
     return (
-        <div>
-            <p><span className="font-weight-bold">Homeworld:</span> <a href={url}><span className="float-right">{homeworld.name}</span></a></p>
-            <p><span className="font-weight-bold">Other People in the same Homeworld:</span>
+        <>
+            <td>{homeworld.name} <br/> Shared with:
                 {
-                    array.map((arr , i) => {
+                    array.map((arr, i) => {
                         return (<Resident key={i} people={arr} />)
                     })
                 }
-            </p>
-        </div>
+            </td>
+        </>
     );
 }
 export default Homeworld;

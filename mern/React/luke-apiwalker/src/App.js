@@ -12,13 +12,11 @@ function App() {
   const [id, setId] = useState(0)
 
   return (
-    <div className="container">
-      <div className="jumbotron">
+    <div className="container shadow my-5 p-4 rounded ">
         <Form category={category} setCategory={setCategory} setId={setId} choices={choices} id={id} />
         <Router>
           <Results path="/:category/:id" id={id} category={category} />
         </Router>
-      </div>
     </div>
   );
 }

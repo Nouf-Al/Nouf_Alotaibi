@@ -5,7 +5,6 @@ import Homeworld from './Homeworld';
 const Results = ({ id, category }) => {
     const [result, setResult] = useState(null);
     const [error, setError] = useState(false);
-    const [homeworld, setHomeworld] = useState([]);
 
     useEffect(() => {
         setError(false);
@@ -28,51 +27,83 @@ const Results = ({ id, category }) => {
     if (category === 'people') {
         resultDisplay = (
             <>
-                <p><span className="font-weight-bold">Height:</span> <span className="float-right">{result.height}</span></p>
-                <p><span className="font-weight-bold">Mass:</span> <span className="float-right">{result.mass}</span></p>
-                <p><span className="font-weight-bold">Hair color:</span> <span className="float-right">{result.hair_color}</span></p>
-                <p><span className="font-weight-bold">Skin color:</span> <span className="float-right">{result.skin_color}</span></p>
-                {/* <p><span className="font-weight-bold">Homeworld:</span> <a href={result.homeworld}><span className="float-right">{result.homeworld}</span></a></p> */}
-                <Homeworld url={result.homeworld} />
-
+                <table class="table table-hover table-light shadow ">
+                    <thead>
+                        <tr>
+                            <th>Height</th>
+                            <th>Mass</th>
+                            <th>Hair color</th>
+                            <th>Skin color</th>
+                            <th>Homeworld</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{result.height}</td>
+                            <td>{result.mass}</td>
+                            <td>{result.hair_color}</td>
+                            <td>{result.skin_color}</td>
+                            <Homeworld url={result.homeworld} />
+                        </tr>
+                    </tbody>
+                </table>
             </>
         );
     } else if (category === 'planets') {
         resultDisplay = (
             <>
-                <p><span className="font-weight-bold">Climate:</span> <span className="float-right">{result.climate}</span></p>
-                <p><span className="font-weight-bold">Terrain:</span> <span className="float-right">{result.terrain}</span></p>
-                <p><span className="font-weight-bold">Surface water:</span> <span className="float-right">{result.surface_water}</span></p>
-                <p><span className="font-weight-bold">Population:</span> <span className="float-right">{result.population}</span></p>
+                <table class="table table-hover table-light shadow ">
+                    <thead>
+                        <tr>
+                            <th>Climate</th>
+                            <th>Terrain</th>
+                            <th>Surface water</th>
+                            <th>Population</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{result.climate}</td>
+                            <td>{result.terrain}</td>
+                            <td>{result.surface_water}</td>
+                            <td>{result.population}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </>
+
         );
     } else {
         resultDisplay = (
             <>
-                <p><span className="font-weight-bold">Name:</span> <span className="float-right">{result.name}</span></p>
-                <p><span className="font-weight-bold">Language:</span> <span className="float-right">{result.language}</span></p>
-                <p><span className="font-weight-bold">Skin colors:</span> <span className="float-right">{result.skin_colors}</span></p>
-                <p><span className="font-weight-bold">Average lifespan:</span> <span className="float-right">{result.average_lifespan}</span></p>
+                <table class="table table-hover table-light shadow ">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Language</th>
+                            <th>Skin colors</th>
+                            <th>Average lifespan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{result.name}</td>
+                            <td>{result.language}</td>
+                            <td>{result.skin_colors}</td>
+                            <td>{result.average_lifespan}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </>
         );
     }
 
     return (
         <>
-            <div className="card my-5 ">
-                <div className="card-title bg-dark text-light">
-                    <h3 className="text-center font-weight-bold">{result.name}</h3>
-                </div>
-                <div className="card-body">
-                    {
-                        error ?
-                            <>
-                                <p>These aren't the droids you're looking for</p>
-                            </> :
-                            resultDisplay
-                    }
-                </div>
-            </div>
+            {
+                error ?
+                    <><div class="alert alert-dark" role="alert">These aren't the droids you're looking for</div></>: resultDisplay
+            }
         </>
     );
 }
