@@ -1,0 +1,19 @@
+
+.Header {
+  height: 162px;
+}
+
+.Navigation {
+  height: 293px;
+}
+
+
+.SubContents {
+  height: 244px;
+  width: 320px;
+}
+
+.Advertisement {
+  background-color: #b4a7d6;
+  height: 100px;
+}
