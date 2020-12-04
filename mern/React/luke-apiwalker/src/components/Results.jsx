@@ -27,7 +27,7 @@ const Results = ({ id, category }) => {
     if (category === 'people') {
         resultDisplay = (
             <>
-                <table class="table table-hover table-light shadow ">
+                <table class="table table-hover table-light shadow rounded">
                 <caption className="result-title  font-weight-bold">{result.name}</caption>
                     <thead>
                         <tr>
@@ -53,7 +53,7 @@ const Results = ({ id, category }) => {
     } else if (category === 'planets') {
         resultDisplay = (
             <>
-                <table class="table table-hover table-light shadow ">
+                <table class="table table-hover table-light shadow rounded">
                 <caption className="result-title  font-weight-bold">{result.name}</caption>
                     <thead>
                         <tr>
@@ -78,7 +78,7 @@ const Results = ({ id, category }) => {
     } else {
         resultDisplay = (
             <>
-                <table class="table table-hover table-light shadow ">
+                <table class="table table-hover table-light shadow rounded">
                 <caption className="result-title  font-weight-bold">{result.name}</caption>
                     <thead>
                         <tr>
