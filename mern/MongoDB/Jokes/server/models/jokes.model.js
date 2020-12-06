@@ -9,7 +9,8 @@ const JokeSchema = new mongoose.Schema({
         type:String,
         minlength:[3,"should be at least 3 charecters."]
     }
-});
+},
+{timestamps: true});
 
 
 const Joke = mongoose.model("Jokes", JokeSchema);
