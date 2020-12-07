@@ -1,16 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
-export default props => {
-    const [product, setProduct] = useState({})
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "@reach/router";
+export default (props) => {
+    const [product, setProduct] = useState({});
+    
+
     useEffect(() => {
-        axios.get("http://localhost:8000/api/product/" + props.id)
-            .then(res => setProduct(res.data))
-    }, [])
+        axios
+        .get("http://localhost:8000/api/product/" + props.id)
+        .then((res) => setProduct(res.data));
+    }, []);
     return (
         <div>
-            <p>Title: {product.title}</p>
-            <p>Price: {product.price}</p>
-            <p>Description: {product.description}</p>
+        <p>Title: {product.title}</p>
+        <p>Price: {product.price}</p>
+        <p>Description: {product.description}</p>
+        <Link to={"/product/" + product._id + "/edit"}>Edit</Link>
+        <button className="btn btn-danger btn-block" onClick={(e)=>{deleteProduct(product._id)}}>Delete</button>
         </div>
-    )
-}
+    );
+};
