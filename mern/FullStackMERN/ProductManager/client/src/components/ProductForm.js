@@ -1,35 +1,27 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
-export default () => {
-    const [title, setTitle] = useState("")
-    const [price, setPrice] = useState("")
-    const [description, setDescription] = useState("")
-
+export default ({onSubmitProp,initialTitle,initialDescription,initialPrice}) => {
+    const [title, setTitle] = useState(initialTitle)
+    const [price, setPrice] = useState(initialPrice)
+    const [description, setDescription] = useState(initialDescription)
 
     const submitHandler = (e) => {
         e.preventDefault();
-
-        axios.post('http://localhost:8000/api/products', {
-            title,
-            price,
-            description
-        })
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
+        onSubmitProp({title, price, description});
+        setTitle('');
+        setPrice('');
+        setDescription('');
     }
     return (
-
         <form onSubmit={submitHandler}><div className="row">
             <div className="col">
-                <input type="text" className="form-control m-3 mx-auto" placeholder="Title" onChange={e => setTitle(e.target.value)} value={title} />
+                <input type="text" className="form-control m-3 mx-auto" onChange={e => setTitle(e.target.value)} value={title} placeholder="Title"/>
                 <input type="Number" className="form-control m-3 mx-auto" placeholder="Price" onChange={e => setPrice(e.target.value)} value={price} />
                 <input type="text" className="form-control m-3 mx-auto" placeholder="Description" onChange={e => setDescription(e.target.value)} value={description} />
-                <input type="submit" className="btn btn-dark btn-block m-3 mx-auto p-3" value="Create" />
+                <input type="submit" className="btn btn-dark btn-block m-3 mx-auto p-3" value="Submit" />
             </div>
         </div>
         </form>
-
     );
 
 }
