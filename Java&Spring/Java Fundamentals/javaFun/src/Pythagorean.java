@@ -1,4 +1,4 @@
-import java.lang.Math;
+import java.lang.*;
 public class Pythagorean {
     public double calculateHypotenuse(int legA, int legB) {
         double A = legA;
