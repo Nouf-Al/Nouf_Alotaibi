@@ -3,9 +3,7 @@ public class Pythagorean {
     public double calculateHypotenuse(int legA, int legB) {
         double A = legA;
         double B = legB;
-        double c = Math.pow(A,2) + Math.pow(B,2);
-        c = Math.sqrt(c);
-        return c;
+        return Math.sqrt(Math.pow(A,2) + Math.pow(B,2));
     }
 }
 
