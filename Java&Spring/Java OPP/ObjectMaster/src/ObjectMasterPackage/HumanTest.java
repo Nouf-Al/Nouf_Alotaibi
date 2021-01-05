@@ -7,8 +7,6 @@ public class HumanTest {
 		Human h2 = new Human();
 		h1.attack(h2);
 		System.out.println(h2);
-
-
 	}
 
 }
