@@ -2,7 +2,7 @@ package ZooKeeperPackage;
 
 public class GorillaTest {
 	public static void main(String[] args) {
-		Gorilla g1 = new Gorilla();
+		Gorilla g1 = new Gorilla(100);
 		g1.displayEnergy();
 		g1.throwSomething();
 		g1.climb();
