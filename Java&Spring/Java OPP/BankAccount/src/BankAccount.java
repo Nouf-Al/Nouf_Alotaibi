@@ -86,5 +86,4 @@ public class BankAccount {
 		return "< Account no. " + accountNum + ", Total balance: $" + (savings + checking)+" >"; 
 	}
 	
-
 }
