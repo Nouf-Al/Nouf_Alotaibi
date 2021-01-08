@@ -18,7 +18,7 @@ public class PuzzleJavaTest {
         // System.out.println(p1.Shuffle(arrStr));
 
 // 3
-        // p1.letters();
+        p1.letters();
 
 // 4
         // System.out.println(p1.random());
