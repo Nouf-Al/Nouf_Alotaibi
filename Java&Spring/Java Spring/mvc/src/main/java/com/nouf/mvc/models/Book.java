@@ -32,7 +32,6 @@ public class Book {
     @NotNull
     @Min(100)
     private Integer numberOfPages;
-    // This will not allow the createdAt column to be updated after creation
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
@@ -49,7 +48,6 @@ public class Book {
         this.numberOfPages = pages;
     }
     
-    // other getters and setters removed for brevity
     @PrePersist
     protected void onCreate(){
         this.createdAt = new Date();

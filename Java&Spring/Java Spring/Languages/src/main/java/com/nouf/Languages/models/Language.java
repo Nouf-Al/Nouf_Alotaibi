@@ -25,7 +25,6 @@ public class Language {
     private String creator;
     @NotNull
     private double currentVersion;
-    // This will not allow the createdAt column to be updated after creation
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
