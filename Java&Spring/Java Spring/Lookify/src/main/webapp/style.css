@@ -1,0 +1,26 @@
+@charset "windows-1256";
+
+html{
+    font-size: 70%;
+}
+body{
+	background-image: linear-gradient(to right bottom, #a0d52f, #82c524, #63b61a, #40a611, #079609);
+    height: 100vh;
+}
+
+.index-container {
+    background:#00000057;
+    padding: 191px 0;
+}
+
+.dash-container {
+    background:#00000057;
+}
+
+.no-results{
+    width: fit-content;
+    display: block;
+    text-align: center;
+    font-size: 36px;
+    margin: 143px auto;
+}
