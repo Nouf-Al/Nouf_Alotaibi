@@ -34,8 +34,8 @@ public class LanguageController {
         if (result.hasErrors()) {
             return "all.jsp";
         } else {
-        	languageService.createLanguage(newLanguage);
-            return "redirect:/languages";
+			languageService.createLanguage(newLanguage);
+			return "redirect:/languages";
         }
     }
 	
