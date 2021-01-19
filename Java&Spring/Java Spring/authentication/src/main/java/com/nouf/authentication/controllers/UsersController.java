@@ -13,13 +13,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nouf.authentication.models.User;
 import com.nouf.authentication.services.UserService;
+import com.nouf.authentication.validator.UserValidator;
 
 @Controller
 public class UsersController {
     private final UserService userService;
-    
-    public UsersController(UserService userService) {
+    private final UserValidator userValidator;
+
+    public UsersController(UserService userService, UserValidator userValidator) {
         this.userService = userService;
+        this.userValidator = userValidator;
     }
    
     @RequestMapping("/registration")
@@ -34,6 +37,7 @@ public class UsersController {
     
     @RequestMapping(value="/registration", method=RequestMethod.POST)
     public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session) {
+    	userValidator.validate(user, result);
     	if(result.hasErrors()) {
     		return "registrationPage.jsp";
     	}else {
