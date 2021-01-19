@@ -54,9 +54,7 @@ public class HomeController {
 	public String newQuestion(HttpSession session, @RequestParam(name="tagsSubjct")String tagsSubjct,@RequestParam(name="questionText")String questionText) {
 			String [] tags = tagsSubjct.split("\\s*,\\s*");
 //			String regex = "(?=.*[A-Z])";
-//			Pattern p = Pattern.compile(regex);
-			 
-			System.out.print(tags.length);
+//			Pattern p = Pattern.compile(regex);			 
 			if(tags.length>3 || tags.length==0 || questionText.length()==0) {
 				if(questionText.length()==0) {
 					session.setAttribute("QestionTextLengthError", "Question field is rquired.");
@@ -72,10 +70,8 @@ public class HomeController {
 				for(int i=0; i<tags.length;i++) {
 //					Matcher m = p.matcher(tags[i]);
 //					if (m.matches()) {
-//						System.out.println("Yes");
 //						session.setAttribute("tagsRegexError", "Tags must be lowercase.");
 //						return "new.jsp"; 
-//
 //					}
 			        String tag = tags[i].toLowerCase();  
 					Tag find = ser.findBySubject(tag);

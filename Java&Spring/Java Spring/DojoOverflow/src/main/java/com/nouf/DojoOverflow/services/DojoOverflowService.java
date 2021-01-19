@@ -1,10 +1,7 @@
 package com.nouf.DojoOverflow.services;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 import com.nouf.DojoOverflow.models.Answer;
 import com.nouf.DojoOverflow.models.Question;
 import com.nouf.DojoOverflow.models.Tag;
