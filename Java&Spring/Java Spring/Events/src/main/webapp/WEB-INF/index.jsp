@@ -45,6 +45,23 @@
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
+										<form:label path="location">Location:</form:label>
+										<form:input path="location" class="form-control" />
+										<form:errors path="location" class="text-danger" />
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<form:label path="">State:</form:label>
+										<select name="state" class="form-control">
+											<option value="ca">CA</option>
+											<option value="ny">NY</option>
+											<option value="sa">SA</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
 										<label>Password:</label>
 										<form:password path="password" class="form-control" />
 										<form:errors path="password" class="text-danger" />

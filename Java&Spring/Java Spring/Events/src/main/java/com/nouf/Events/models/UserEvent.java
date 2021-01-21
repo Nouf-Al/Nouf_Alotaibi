@@ -40,6 +40,11 @@ public class UserEvent {
 	public UserEvent() {
 	}
 
+	public UserEvent(Event e, User u) {
+		this.event = e;
+		this.user = u;
+	}
+
 	public Long getId() {
 		return id;
 	}

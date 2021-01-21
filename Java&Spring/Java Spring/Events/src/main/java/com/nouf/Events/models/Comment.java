@@ -35,6 +35,10 @@ public class Comment {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "event_id")
 	private Event event;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	public Comment() { }
 
@@ -77,7 +81,15 @@ public class Comment {
 	public void setEvent(Event event) {
 		this.event = event;
 	}
+	
+	public User getUser() {
+		return user;
+	}
 
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();

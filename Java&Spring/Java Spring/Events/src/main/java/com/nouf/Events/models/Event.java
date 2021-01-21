@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -33,12 +34,15 @@ public class Event {
 	private String name;
 
 	@NotNull(message = "Date is required.")
-	@FutureOrPresent
-	@DateTimeFormat(pattern = "dd-MMM-yyyy")
+	@FutureOrPresent(message="Only future dates accepted.")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date;
 
 	@NotEmpty(message = "Location is required.")
 	private String location;
+
+	@NotEmpty(message = "State is required.")
+	private String state;
 
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -51,18 +55,30 @@ public class Event {
 	@JoinTable(name = "users_events", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private List<User> users;
 
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
-
 	@OneToMany(mappedBy = "event", fetch = FetchType.LAZY)
 	private List<Comment> comments;
 
-	public Event() { }
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	private User user;
+
+	public Event() {
+	}
+	
+	
+
+	public Event(@NotEmpty(message = "Name is required.") String name,
+			@NotNull(message = "Date is required.") Date date,
+			@NotEmpty(message = "Location is required.") String location,
+			@NotEmpty(message = "State is required.") String state, Date updatedAt) {
+		this.name = name;
+		this.date = date;
+		this.location = location;
+		this.state = state;
+		this.updatedAt = updatedAt;
+	}
+
+
 
 	public Long getId() {
 		return id;
@@ -120,6 +136,30 @@ public class Event {
 		this.comments = comments;
 	}
 
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
@@ -129,4 +169,5 @@ public class Event {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
+
 }

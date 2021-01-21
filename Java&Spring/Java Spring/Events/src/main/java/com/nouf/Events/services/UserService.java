@@ -2,7 +2,6 @@ package com.nouf.Events.services;
 
 import java.util.Optional;
 import org.mindrot.jbcrypt.BCrypt;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import com.nouf.Events.models.LoginUser;
@@ -11,9 +10,7 @@ import com.nouf.Events.repositories.UserRepository;
 
 @Service
 public class UserService {
-	@Autowired
 	private final UserRepository userRepo;
-
 	public UserService(UserRepository userRepo) {
 		this.userRepo = userRepo;
 	}
@@ -67,4 +64,8 @@ public class UserService {
 			return user;
 		}
 	}
+	
+	public void update(User user) {
+        userRepo.save(user);
+    }
 }
